@@ -4,29 +4,22 @@ import { addRecipe } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MyModal from '../components/mymodal';
+import ModalBox from '../containers/modalbox'
 
 class AddRecipeButton extends Component{
   constructor(props){
     super(props);
     this.state = {
       recipeName: '',
-      userIngredients: '',
-      showModal: false
+      userIngredients: ''
     };
     this.onClickSubmit = this.onClickSubmit.bind(this);
     this.handleRecipeNameChange = this.handleRecipeNameChange.bind(this)
     this.handleUserIngredientsChange = this.handleUserIngredientsChange.bind(this)
-    this.toggleModal = this.toggleModal.bind(this);
-  }
-  toggleModal(){
-    this.setState({
-        showModal: !this.state.showModal
-    });
   }
   onClickSubmit(){
     const splitIngredients = this.state.userIngredients.split(/[ ,]+/)
     this.props.addRecipe([this.state.recipeName, splitIngredients])
-    this.toggleModal()
     this.setState({
       recipeName: '',
       userIngredients: ''
@@ -40,23 +33,14 @@ class AddRecipeButton extends Component{
   }
   render(){
     return (
-      <div>
-        <Button
-          bsStyle="success"
-          onClick={this.toggleModal}
-          >Add Recipe
-        </Button>
-        <MyModal
-          toggleModal={this.toggleModal}
-          showModal={this.state.showModal}
-          recipeName={this.state.recipeName}
-          userIngredients={this.state.userIngredients}
-          handleRecipeNameChange={this.handleRecipeNameChange}
-          handleUserIngredientsChange={this.handleUserIngredientsChange}
-          onClickSubmit={this.onClickSubmit}
-          modalTextTitle={'Add Recipe'}
-        />
-      </div>
+      <ModalBox
+        modalTextTitle={'Add Recipe'}
+        recipeName={this.state.recipeName}
+        userIngredients={this.state.userIngredients}
+        handleRecipeNameChange={this.handleRecipeNameChange}
+        handleUserIngredientsChange={this.handleUserIngredientsChange}
+        onClickSubmit={this.onClickSubmit}
+      />
     )
   }
 }
