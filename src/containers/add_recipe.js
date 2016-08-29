@@ -27,6 +27,10 @@ class AddRecipeButton extends Component{
     const splitIngredients = this.state.userIngredients.split(/[ ,]+/)
     this.props.addRecipe([this.state.recipeName, splitIngredients])
     this.toggleModal()
+    this.setState({
+      recipeName: '',
+      userIngredients: ''
+    })
   }
   handleRecipeNameChange(event){
     this.setState({recipeName: event.target.value})
