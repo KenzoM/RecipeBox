@@ -1,14 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap'
+import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap';
+import MyModal from '../components/mymodal';
 import { bindActionCreators } from 'redux';
+import { deleteRecipe } from '../actions/index';
+
 
 class RecipeBox extends Component {
   constructor(props){
     super(props);
     this.state = {
-      open: false
+      showModal: false
     };
+    this.renderRecipeList = this.renderRecipeList.bind(this)
+    this.renderModal = this.renderModal.bind(this)
+
+    this.onClickSubmit = this.onClickSubmit.bind(this);
+    this.handleRecipeNameChange = this.handleRecipeNameChange.bind(this)
+    this.handleUserIngredientsChange = this.handleUserIngredientsChange.bind(this)
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+  toggleModal(){
+    this.setState({
+        showModal: !this.state.showModal
+    });
+  }
+  onClickSubmit(){
+    this.toggleModal()
+  }
+  handleRecipeNameChange(event){
+    this.setState({recipeName: event.target.value})
+  }
+  handleUserIngredientsChange(event){
+    this.setState({userIngredients: event.target.value})
+  }
+  renderModal(list){
+    this.toggleModal()
+    console.log(this.state.showModal)
   }
   renderRecipeList(recipeItem,index){
     const recipe = recipeItem.recipe;
@@ -22,10 +50,27 @@ class RecipeBox extends Component {
               return <ListGroupItem key={index}>{ingredient}</ListGroupItem>;
             })}
             <ListGroupItem>
-              <Button bsStyle="danger">Delete</Button> <Button bsStyle="info">Edit</Button>
+              <Button
+                onClick={() => this.props.deleteRecipe(recipeItem)}
+                bsStyle="danger">Delete
+              </Button>
+              <Button
+                onClick={() => this.renderModal(recipeItem)}
+                bsStyle="info">Edit
+              </Button>
             </ListGroupItem>
           </ListGroup>
         </Panel>
+        <MyModal
+          toggleModal={this.toggleModal}
+          showModal={this.state.showModal}
+          recipeName={recipe}
+          userIngredients={ingredients}
+          handleRecipeNameChange={this.handleRecipeNameChange}
+          handleUserIngredientsChange={this.handleUserIngredientsChange}
+          onClickSubmit={this.onClickSubmit}
+          modalTextTitle={'Edit Recipe'}
+        />
       </div>
     )
   }
@@ -42,9 +87,12 @@ class RecipeBox extends Component {
 
 function mapStateToProps(state) {
   return {
-    listRecipes: state.listRecipes,
     addRecipe : state.addRecipe
   };
 }
 
-export default connect(mapStateToProps)(RecipeBox);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({deleteRecipe : deleteRecipe}, dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(RecipeBox);
