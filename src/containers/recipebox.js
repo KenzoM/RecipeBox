@@ -87,7 +87,7 @@ class RecipeBox extends Component {
 
 function mapStateToProps(state) {
   return {
-    addRecipe : state.addRecipe
+    addRecipe : state.recipeState
   };
 }
 
