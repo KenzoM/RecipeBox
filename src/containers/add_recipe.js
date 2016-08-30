@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { addRecipe } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ModalBox from '../containers/modalbox'
+import ModalBox from '../components/modalbox'
 
 class AddRecipeButton extends Component{
   constructor(props){

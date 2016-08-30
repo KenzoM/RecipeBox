@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap
 import { bindActionCreators } from 'redux';
 import { deleteRecipe, editRecipe } from '../actions/index';
 import shortid from 'shortid'
-import ModalBox from '../containers/modalbox'
+import ModalBox from '../components/modalbox'
 
 
 
