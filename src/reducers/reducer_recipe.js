@@ -1,13 +1,7 @@
 import { RECIPE_ADD, RECIPE_DELETE, RECIPE_EDIT } from '../actions/index';
 import shortid from 'shortid';
 
-const defaultList = [
-  { recipe: 'Pizza', ingredients: ['tomato-sauce','cheese','peperoni'], id:shortid.generate() },
-  { recipe: 'Pie', ingredients: ['dough','cherry'], id:shortid.generate()  },
-  { recipe: 'Curry', ingredients: ['rice','sauce','carrots'], id:shortid.generate() },
-];
-
-export default function(state = defaultList, action){
+export default function(state = [], action){
   switch (action.type) {
     case RECIPE_ADD:
       return [
