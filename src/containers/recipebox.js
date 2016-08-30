@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap';
-import MyModal from '../components/mymodal';
 import { bindActionCreators } from 'redux';
-import { deleteRecipe } from '../actions/index';
+import { deleteRecipe, editRecipe } from '../actions/index';
 import shortid from 'shortid'
-import ModalBox from '../containers/modalbox'
-import RecipeList from '../containers/recipeList'
+import Edit from '../containers/edit'
 
 
 class RecipeBox extends Component {
   constructor(props){
     super(props);
-
     this.renderRecipeList = this.renderRecipeList.bind(this)
     this.handleRecipeNameChange = this.handleRecipeNameChange.bind(this)
     this.handleUserIngredientsChange = this.handleUserIngredientsChange.bind(this)
@@ -27,6 +24,7 @@ class RecipeBox extends Component {
   renderRecipeList(recipeItem, index){
     const recipe = recipeItem.recipe;
     const ingredients = recipeItem.ingredients;
+    const recipeID = recipeItem.id;
     const id = shortid.generate();
     return(
       <div key={id}>
@@ -41,10 +39,10 @@ class RecipeBox extends Component {
                 onClick={() => this.props.deleteRecipe(recipeItem)}
                 bsStyle="danger">Delete
               </Button>
-              <RecipeList
+              <Edit
                 recipeName={recipe}
                 userIngredients={ingredients}
-                onClickSubmit={this.onClickSubmit}
+                recipeID={recipeID}
               />
             </ListGroupItem>
           </ListGroup>
@@ -70,7 +68,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({deleteRecipe : deleteRecipe}, dispatch)
+  return bindActionCreators({deleteRecipe : deleteRecipe, editRecipe : editRecipe}, dispatch)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(RecipeBox);

@@ -3,7 +3,6 @@ import { Button, Modal } from 'react-bootstrap';
 import { addRecipe } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MyModal from '../components/mymodal';
 import ModalBox from '../containers/modalbox'
 
 class AddRecipeButton extends Component{
@@ -18,7 +17,7 @@ class AddRecipeButton extends Component{
     this.handleUserIngredientsChange = this.handleUserIngredientsChange.bind(this)
   }
   onClickSubmit(){
-    const splitIngredients = this.state.userIngredients.split(/[ ,]+/)
+    const splitIngredients = this.state.userIngredients.split(/[,]+/)
     this.props.addRecipe([this.state.recipeName, splitIngredients])
     this.setState({
       recipeName: '',
