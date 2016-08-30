@@ -20,7 +20,7 @@ class RecipeList extends Component {
   render(){
     return(
       <div>
-        <Panel
+        <Panel className="clickable"
           collapsible
           header={<h3>{this.props.recipe}</h3>}>
           <ListGroup >

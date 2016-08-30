@@ -1,9 +1,4 @@
-#fcc{
-  border-radius: 16px 16px 16px 16px;
-  -moz-border-radius: 16px 16px 16px 16px;
-  -webkit-border-radius: 16px 16px 16px 16px;
-  border: 6px ridge #e2e2e2;
-}
+
 .container {
   margin-top: 25px;
 }
