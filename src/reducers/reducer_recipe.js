@@ -1,6 +1,4 @@
-import { RECIPE_ADD } from '../actions/index';
-import { RECIPE_DELETE } from '../actions/index';
-import { RECIPE_EDIT } from '../actions/index';
+import { RECIPE_ADD, RECIPE_DELETE, RECIPE_EDIT } from '../actions/index';
 import shortid from 'shortid';
 
 const defaultList = [
@@ -18,7 +16,7 @@ export default function(state = defaultList, action){
         ...state
       ];
     case RECIPE_DELETE:
-    let index = state.map(x => x.recipe).indexOf(action.payload.recipe)
+    let index = state.map(x => x.id).indexOf(action.id)
       return (
         state.slice(0,index).concat(state.slice(index + 1))
       )

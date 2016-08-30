@@ -11,16 +11,16 @@ export function addRecipe(recipe) {
     id: shortid.generate()
   }
 }
+export function deleteRecipe(recipeID) {
+  return {
+    type: RECIPE_DELETE,
+    id: recipeID
+  }
+}
 export function editRecipe(recipe,recipeID) {
   return {
     type: RECIPE_EDIT,
     payload: recipe,
     id: recipeID
-  }
-}
-export function deleteRecipe(recipe) {
-  return {
-    type: RECIPE_DELETE,
-    payload: recipe
   }
 }
