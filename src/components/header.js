@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import {Button, Icon} from 'react-materialize';
 
-export default class App extends Component {
+export default class Header extends Component {
   render() {
     return (
-      <h1>FCC RecipeBox Project </h1>
+      <Button node='a' waves='light'><Icon right>file_cloud</Icon>button</Button>
     );
   }
 }
