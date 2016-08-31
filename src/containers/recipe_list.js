@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap
 import { bindActionCreators } from 'redux';
 import { deleteRecipe, editRecipe } from '../actions/index';
 import shortid from 'shortid'
-import Edit from '../containers/edit_recipe'
+import Edit from './edit_recipe'
 
 class RecipeList extends Component {
   constructor(props){
@@ -22,9 +22,10 @@ class RecipeList extends Component {
       <div>
         <Panel className="clickable"
           collapsible
-          header={<h3>{this.props.recipe}</h3>}>
+          header={<h3>{this.props.recipe}</h3>}
+          >
           <ListGroup >
-            <ListGroupItem  header="Ingredients"></ListGroupItem>
+            <ListGroupItem className='kenzo'  header="Ingredients"></ListGroupItem>
             {this.props.ingredients.map(function(ingredient,index){
               return <ListGroupItem key={index}>{ingredient}</ListGroupItem>;
             })}

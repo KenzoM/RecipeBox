@@ -6,8 +6,6 @@ import { deleteRecipe, editRecipe } from '../actions/index';
 import shortid from 'shortid'
 import ModalBox from '../components/modalbox'
 
-
-
 class RecipeList extends Component{
   constructor(props){
     super(props);

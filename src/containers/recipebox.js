@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap';
-import RecipeList from '../containers/recipe_list'
+import RecipeList from './recipe_list'
 
 class RecipeBox extends Component {
   constructor(props){
