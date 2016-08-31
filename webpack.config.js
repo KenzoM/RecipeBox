@@ -1,4 +1,4 @@
-var path = require('path')
+var path = require('path');
 module.exports = {
   entry: [
     './src/index.js'
@@ -22,7 +22,10 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+    'jquery': path.join(__dirname, 'node_modules/jquery/dist/jquery'),
+    }
   },
   devServer: {
     historyApiFallback: true,

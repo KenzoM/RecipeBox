@@ -29,6 +29,7 @@
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
     "css-loader": "^0.24.0",
+    "jquery": "^2.2.4",
     "lodash": "^3.10.1",
     "materialize-css": "^0.97.7",
     "node-sass": "^3.8.0",
