@@ -24,7 +24,7 @@ class RecipeList extends Component {
           <i className="material-icons">toc</i>
           {this.props.recipe}
         </div>
-        <div className="collapsible-body">
+        <div className="collapsible-body text-recipe">
           <ul className="collection">
             {this.props.ingredients.map(function(ingredient,index){
               let id = shortid()
@@ -34,6 +34,14 @@ class RecipeList extends Component {
                 > {ingredient}
               </li>
             })}
+            <div className="row btns">
+              <div className="col s6 center">
+                <a className="waves-effect green waves-light btn">Edit</a>
+              </div>
+              <div className="col s6 center">
+                <a className="waves-effect red waves-light btn">Delete</a>
+              </div>
+            </div>
           </ul>
         </div>
       </li>
