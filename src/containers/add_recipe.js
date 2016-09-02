@@ -17,6 +17,7 @@ class AddRecipeButton extends Component{
     this.handleUserIngredientsChange = this.handleUserIngredientsChange.bind(this)
   }
   onClickSubmit(){
+    console.log('this should be working')
     const splitIngredients = this.state.userIngredients.split(/[,]+/)
     this.props.addRecipe([this.state.recipeName, splitIngredients])
     this.setState({

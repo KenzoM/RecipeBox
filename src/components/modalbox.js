@@ -1,71 +1,57 @@
 import React, { Component } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Row, Input, Icon } from 'react-materialize';
 
 class ModalBox extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      showModal: false
-    };
-    this.toggleModal = this.toggleModal.bind(this);
+    this.submitData = this.submitData.bind(this)
   }
-  toggleModal(){
-    this.setState({
-      showModal: !this.state.showModal
-    });
-  }
-  submitData(link){
-    link()
-    this.toggleModal()
+  submitData(linky){
+    linky()
   }
   render() {
     return (
       <div>
-        <Button
-          bsStyle="info"
-          onClick={this.toggleModal}
+        <Modal
+          header={this.props.modalTextTitle}
+          trigger={
+            <Button waves='light'>{this.props.modalTextTitle}</Button>
+          }
+          actions={
+            <div>
+              <Button
+                modal="close"
+                waves="light">Close baby
+              </Button>
+              <Button
+                modal="close"
+                waves="light"
+                onClick={ () => this.submitData(this.props.onClickSubmit)}>
+                  {this.props.modalTextTitle}
+              </Button>
+            </div>
+          }
           >
-          {this.props.modalTextTitle}
-        </Button>
-
-        <Modal show={this.state.showModal} onHide={this.toggleModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.props.modalTextTitle}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form>
-              <div className="form-group">
-                <label htmlFor="recipeName">Name of Recipe:</label>
-                <input
-                  value={this.props.recipeName}
-                  onChange= {this.props.handleRecipeNameChange}
-                  type="text"
-                  className="form-control"
-                  id="recipeName" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="userIngredients">Ingredients:</label>
-                <textarea
-                  placeholder="you can seperate by comma"
-                  value={this.props.userIngredients}
-                  onChange={this.props.handleUserIngredientsChange}
-                  type="text"
-                  className="form-control"
-                  id="userIngredients" />
-              </div>
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              bsStyle="info"
-              onClick={ () => this.submitData(this.props.onClickSubmit) }>
-              {this.props.modalTextTitle}
-            </Button>
-            <Button
-              bsStyle="danger"
-              onClick= {this.toggleModal}
-            >Close</Button>
-          </Modal.Footer>
+          <Row>
+              <Input
+                value={this.props.recipeName}
+                onChange= {this.props.handleRecipeNameChange}
+                type="text"
+                s={6}
+                label="Recipe Name"
+                validate>
+                  <Icon>mode_edit</Icon>
+                </Input>
+              <Input
+                value={this.props.userIngredients}
+                onChange={this.props.handleUserIngredientsChange}
+                type="text"
+                s={12}
+                label="Ingredients"
+                validate>
+                  <Icon>mode_edit</Icon>
+                </Input>
+          </Row>
         </Modal>
       </div>
     );
