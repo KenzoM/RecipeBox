@@ -34,6 +34,7 @@ class RecipeList extends Component{
     return (
       <ModalBox
         modalTextTitle={'Edit Recipe'}
+        buttonText={'Edit'}
         recipeName={this.state.recipeName}
         userIngredients={this.state.userIngredients}
         handleRecipeNameChange={this.handleRecipeNameChange}

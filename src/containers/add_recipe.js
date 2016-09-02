@@ -17,7 +17,6 @@ class AddRecipeButton extends Component{
     this.handleUserIngredientsChange = this.handleUserIngredientsChange.bind(this)
   }
   onClickSubmit(){
-    console.log('this should be working')
     const splitIngredients = this.state.userIngredients.split(/[,]+/)
     this.props.addRecipe([this.state.recipeName, splitIngredients])
     this.setState({
@@ -33,14 +32,17 @@ class AddRecipeButton extends Component{
   }
   render(){
     return (
-      <ModalBox
-        modalTextTitle={'Add Recipe'}
-        recipeName={this.state.recipeName}
-        userIngredients={this.state.userIngredients}
-        handleRecipeNameChange={this.handleRecipeNameChange}
-        handleUserIngredientsChange={this.handleUserIngredientsChange}
-        onClickSubmit={this.onClickSubmit}
-      />
+      <div id='add-recipe'>
+        <ModalBox
+          modalTextTitle={'Add Recipe'}
+          icon={'add'}
+          recipeName={this.state.recipeName}
+          userIngredients={this.state.userIngredients}
+          handleRecipeNameChange={this.handleRecipeNameChange}
+          handleUserIngredientsChange={this.handleUserIngredientsChange}
+          onClickSubmit={this.onClickSubmit}
+        />
+      </div>
     )
   }
 }

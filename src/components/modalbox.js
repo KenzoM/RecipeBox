@@ -5,6 +5,10 @@ class ModalBox extends Component {
   constructor(props){
     super(props)
     this.submitData = this.submitData.bind(this)
+    this.test = this.test.bind(this)
+  }
+  test(){
+    console.log('close!')
   }
   submitData(linky){
     linky()
@@ -15,12 +19,20 @@ class ModalBox extends Component {
         <Modal
           header={this.props.modalTextTitle}
           trigger={
-            <Button waves='light'>{this.props.modalTextTitle}</Button>
+            <Button
+              floating
+              large
+              waves='light'
+              icon={this.props.icon}
+              className='green'>
+                {this.props.buttonText}</Button
+            >
           }
           actions={
             <div>
               <Button
                 modal="close"
+                onClick={this.test}
                 waves="light">Close baby
               </Button>
               <Button
@@ -46,7 +58,7 @@ class ModalBox extends Component {
                 value={this.props.userIngredients}
                 onChange={this.props.handleUserIngredientsChange}
                 type="text"
-                s={12}
+                s={8}
                 label="Ingredients"
                 validate>
                   <Icon>mode_edit</Icon>
