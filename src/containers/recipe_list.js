@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap';
+import { Button, Modals, Collapsible, CollapsibleItem, Collection, CollectionItem } from 'react-materialize';
 import { bindActionCreators } from 'redux';
 import { deleteRecipe, editRecipe } from '../actions/index';
 import shortid from 'shortid'
@@ -19,30 +19,11 @@ class RecipeList extends Component {
   }
   render(){
     return(
-      <div>
-        <Panel className="clickable"
-          collapsible
-          header={<h3>{this.props.recipe}</h3>}
-          >
-          <ListGroup >
-            <ListGroupItem className='kenzo'  header="Ingredients"></ListGroupItem>
-            {this.props.ingredients.map(function(ingredient,index){
-              return <ListGroupItem key={index}>{ingredient}</ListGroupItem>;
-            })}
-            <ListGroupItem>
-              <Button
-                onClick={() => this.props.deleteRecipe(this.props.recipeID)}
-                bsStyle="danger">Delete
-              </Button>
-              <Edit
-                recipeName={this.props.recipe}
-                userIngredients={this.props.ingredients}
-                recipeID={this.props.recipeID}
-              />
-            </ListGroupItem>
-          </ListGroup>
-        </Panel>
-      </div>
+      <li>
+        <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
+        <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      </li>
+
     )
   }
 }

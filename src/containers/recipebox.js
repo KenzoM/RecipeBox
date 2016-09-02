@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListGroup, ListGroupItem, Panel, Button, Modals } from 'react-bootstrap';
+import { Collapsible, CollapsibleItem, Row, Col } from 'react-materialize';
 import RecipeList from './recipe_list'
 
 class RecipeBox extends Component {
@@ -9,7 +9,7 @@ class RecipeBox extends Component {
   }
   render(){
     let itemList = [];
-    this.props.recipeList.forEach(function(item){
+    this.props.recipeStateList.forEach(function(item){
       itemList.push(
         <RecipeList
           key={item.id}
@@ -20,9 +20,13 @@ class RecipeBox extends Component {
     })
     return(
       <div className="container">
-        <div className='panel-group'>
-          {itemList}
-        </div>
+        <Row>
+          <Col s={10} offset={'s1'}>
+            <ul className="collapsible" data-collapsible="accordion">
+                {itemList}
+            </ul>
+          </Col>
+        </Row>
       </div>
     )
   }
@@ -30,7 +34,7 @@ class RecipeBox extends Component {
 
 function mapStateToProps(state) {
   return {
-    recipeList : state.recipeState
+    recipeStateList : state.recipeState
   };
 }
 
