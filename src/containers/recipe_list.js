@@ -9,7 +9,6 @@ import Edit from './edit_recipe'
 class RecipeList extends Component {
   constructor(props){
     super(props);
-    this.state = {open: false}
   }
   handleRecipeNameChange(event){
     this.setState({recipeName: event.target.value})
@@ -36,10 +35,19 @@ class RecipeList extends Component {
             })}
             <div className="row btns">
               <div className="col s6 center">
-                <a className="waves-effect green waves-light btn">Edit</a>
+                <Edit
+                  recipeName={this.props.recipe}
+                  userIngredients={this.props.ingredients}
+                  recipeID={this.props.recipeID}
+                />
               </div>
               <div className="col s6 center">
-                <a className="waves-effect red waves-light btn">Delete</a>
+                <a
+                  className="waves-effect red waves-light btn"
+                  onClick={()=> this.props.deleteRecipe(this.props.recipeID)}
+                  >
+                    Delete
+                </a>
               </div>
             </div>
           </ul>

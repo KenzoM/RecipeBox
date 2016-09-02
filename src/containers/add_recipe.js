@@ -36,6 +36,8 @@ class AddRecipeButton extends Component{
         <ModalBox
           modalTextTitle={'Add Recipe'}
           icon={'add'}
+          floating={true}
+          large={true}
           recipeName={this.state.recipeName}
           userIngredients={this.state.userIngredients}
           handleRecipeNameChange={this.handleRecipeNameChange}

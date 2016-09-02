@@ -12,6 +12,7 @@ class RecipeBox extends Component {
     this.props.recipeStateList.forEach(function(item){
       itemList.push(
         <RecipeList
+          key={item.id}
           recipeID={item.id}
           recipe={item.recipe}
           ingredients={item.ingredients}
