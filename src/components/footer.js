@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import { Footer,  copyrights} from 'react-materialize';
+const url = 'https://freecodecamp.com'
 
 export default class Header extends Component {
   render() {
     return (
-      <footer className="page-footer">
-        <div className="container">
-          <div className="row">
-            <div className="col l6 s12">
-              <h5 className="white-text">Made by Kenzo</h5>
-              <p className="grey-text text-lighten-4">Add text later</p>
-            </div>
-          </div>
-        </div>
-        <div className="footer-copyright">
-          <div className="container">
-          © 2014 Copyright Text
-          <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div>
-        </div>
-      </footer>
+      <Footer id='recipe-footer' copyrights="&copy; 2016 Copyright Text"
+        moreLinks={
+          <a className="grey-text text-lighten-4 right" href={url}>FreeCodeCamp</a>
+        }
+        className='example'
+      >
+          <h5 className="white-text">Build a Recipe Box</h5>
+          <p
+            className="grey-text text-lighten-4">
+            Assignment from the freeCodeCamp course.
+          </p>
+      </Footer>
     );
   }
 }
