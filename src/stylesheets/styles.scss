@@ -5,23 +5,19 @@ body {
   min-height: 100%;
   min-height: 100vh;
 }
+
+#fcc {
+  overflow: hidden;
+}
+
+
 #recipe-footer {
   position: absolute;
   right: 0px;bottom:0px;left:0px;
 }
 
-#add-recipe{
-  position: absolute;
-  bottom: 195px;
-  right: 600px;
-}
-
 .text-recipe{
   background: white;
-}
-
-button{
-  margin-right: 5px;
 }
 
 .btn{
