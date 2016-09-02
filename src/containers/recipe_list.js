@@ -20,10 +20,23 @@ class RecipeList extends Component {
   render(){
     return(
       <li>
-        <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
-        <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        <div className="collapsible-header">
+          <i className="material-icons">toc</i>
+          {this.props.recipe}
+        </div>
+        <div className="collapsible-body">
+          <ul className="collection">
+            {this.props.ingredients.map(function(ingredient,index){
+              let id = shortid()
+              return <li
+                className="collection-item"
+                key = {id}
+                > {ingredient}
+              </li>
+            })}
+          </ul>
+        </div>
       </li>
-
     )
   }
 }

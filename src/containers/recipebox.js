@@ -12,7 +12,6 @@ class RecipeBox extends Component {
     this.props.recipeStateList.forEach(function(item){
       itemList.push(
         <RecipeList
-          key={item.id}
           recipeID={item.id}
           recipe={item.recipe}
           ingredients={item.ingredients}
@@ -22,7 +21,7 @@ class RecipeBox extends Component {
       <div className="container">
         <Row>
           <Col s={10} offset={'s1'}>
-            <ul className="collapsible" data-collapsible="accordion">
+            <ul className="collapsible popout" data-collapsible="accordion">
                 {itemList}
             </ul>
           </Col>
