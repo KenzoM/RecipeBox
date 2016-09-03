@@ -1,25 +1,11 @@
-# ReduxSimpleStarter
+RecipeBox
+=====
+[FreeCodeCamp](https://www.freecodecamp.com/challenges/build-a-recipe-box)
+------
+How to use
+-----------
+###Simply add a name of your recipe and enter of all the ingredients (you can separate the ingredients by passing a comma between.
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+###You can edit or delete the selected recipe from the list
 
-###Getting Started###
-
-There are two methods for getting started with this repo.
-
-####Familiar with Git?#####
-Checkout this repo, install dependencies, then start the gulp process with the following:
-
-```
-	> git clone git@github.com:StephenGrider/ReduxSimpleStarter.git
-	> cd ReduxSimpleStarter
-	> npm install
-	> npm start
-```
-
-####Not Familiar with Git?#####
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
-
-```
-	> npm install
-	> npm start
-```
+###This project was written with **React**, **Redux** and **Materialize CSS**
