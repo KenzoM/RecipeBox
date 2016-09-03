@@ -1,21 +1,17 @@
 
-body {
-  background: skyblue;
-  position: relative;
-  min-height: 100%;
-  min-height: 100vh;
+main {
+  flex: 1 0 auto;
 }
 
-#fcc {
-  overflow: hidden;
+#app {
+  background: skyblue;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 #add-recipe{
   text-align: right
-}
-#recipe-footer {
-  position: absolute;
-  right: 0px;bottom:0px;left:0px;
 }
 
 .text-recipe{

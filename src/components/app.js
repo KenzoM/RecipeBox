@@ -9,7 +9,7 @@ var $ = require ('jquery')
 export default class App extends Component {
   render() {
     return (
-      <div id="example">
+      <div id="app">
         <Header />
         <RecipeBox />
         <Footer />

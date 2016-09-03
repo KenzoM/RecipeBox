@@ -19,15 +19,18 @@ class RecipeBox extends Component {
         />)
     })
     return(
-      <div className="container">
-        <Row>
-          <Col s={10} offset={'s1'}>
-            <ul className="collapsible popout" data-collapsible="accordion">
-                {itemList}
-            </ul>
-          </Col>
-        </Row>
-      </div>
+      <main>
+        <div className="container">
+          <Row>
+            <Col s={10} offset={'s1'}>
+              <ul className="collapsible popout" data-collapsible="accordion">
+                  {itemList}
+              </ul>
+            </Col>
+          </Row>
+        </div>        
+      </main>
+
     )
   }
 }
