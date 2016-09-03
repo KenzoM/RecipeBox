@@ -28,7 +28,7 @@ class ModalBox extends Component {
             <div>
               <Button
                 modal="close"
-                onClick={this.test}
+                className='red'
                 waves="light">Close
               </Button>
               <Button
