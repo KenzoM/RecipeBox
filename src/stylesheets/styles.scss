@@ -2,6 +2,9 @@
 main {
   flex: 1 0 auto;
 }
+nav {
+  background: #ff5b62;
+}
 
 #app {
   background: skyblue;
@@ -20,4 +23,10 @@ main {
 
 .btn{
   margin-top: 15px;
+}
+
+.modal-content{
+  h4{
+    text-align: center;
+  }
 }
