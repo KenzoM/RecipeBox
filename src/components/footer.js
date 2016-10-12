@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Footer,  copyrights} from 'react-materialize';
+// import { Footer,  copyrights} from 'react-materialize';
 import AddRecipeButton from '../containers/add_recipe';
 const url = 'https://freecodecamp.com'
 
-export default class Header extends Component {
+export default class Footer extends Component {
   render() {
     return (
       <footer className="page-footer" id="recipe-footer">
